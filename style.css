@@ -3,12 +3,17 @@
   margin: 0;
   box-sizing: border-box;
 }
+:root {
+  --bg-color: #591647;
+  --padding: 20px;
+}
 body {
   width: 100vw;
   height: 100vh;
-  background: #121212;
-  /* overflow: hidden; */
+  background: #591647; /* Dark plum for a rich, fruit-inspired base */
+  overflow-x: hidden;
 }
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -19,11 +24,15 @@ body {
   display: flex;
   gap: 50px;
   list-style: none;
+  z-index: 100;
+}
+.navlist {
+  z-index: 100;
 }
 .navlist ul a {
   text-decoration: none;
   font-size: 1.2em;
-  color: #ff3b3f;
+  color: #c47391; /* Dusty pink for links, inspired by berry */
   font-family: Rowdies;
   font-weight: 700;
 }
@@ -33,7 +42,7 @@ body {
   font-size: 2em;
   text-align: center;
   line-height: 1;
-  color: #ff3b3f;
+  color: #c47391; /* Dusty pink for logo */
   font-family: Changa One;
   font-weight: 900;
   letter-spacing: 2px;
@@ -44,19 +53,20 @@ body {
 }
 .cart a {
   text-decoration: none;
-  background-color: #ff3b3f;
-  color: #fff;
+  background-color: #c47391; /* Dusty pink for buttons */
+  color: #c7efc5; /* Light green for text */
   padding: 12px 20px;
   border-radius: 50px;
 }
 .cart a:hover {
-  background-color: #fff;
-  color: #000;
+  background-color: #c7efc5; /* Light green on hover */
+  color: #591647; /* Dark plum text */
   transition: 0.5s ease;
   transform: scale(1.2);
+  cursor: pointer;
 }
 .navlist li a:hover {
-  color: #fff;
+  color: #c7efc5; /* Light green on hover */
   transition: 0.5s ease;
   transform: scale(1.2);
 }
@@ -65,22 +75,30 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 .home h1 {
   font-size: 23vw;
   text-transform: uppercase;
   font-family: Changa One;
-  letter-spacing: 10px;
+  letter-spacing: 25px;
   margin-top: 90px;
-  color: #fff;
+  color: #c7efc5; /* Light green for heading */
   font-weight: 900;
-  transform: scaleY(1.9);
+  transform: scaleY(1.8);
 }
 .home-img img {
   position: absolute;
-  top: -130px;
-  left: 37vw;
-  width: 40vw;
+  /* top: 200px; */
+  margin-top: 150px;
+  left: 32vw;
+  width: 45vw;
+  height: 800px;
+  transform: rotate3d(0, 0, 0, 15deg);
+}
+#drink {
+  margin-top: 180px;
+  margin-left: 40px;
 }
 .home span {
   opacity: 0;
@@ -94,14 +112,14 @@ body {
 }
 .ordernow {
   position: relative;
-  top: 100px;
+  top: 150px;
   display: flex;
   align-items: center;
 }
 .ordernow p {
   width: 300px;
-  color: white;
-  margin-left: 100px;
+  color: #c7efc5; /* Light green text */
+  margin-left: 60px;
   line-height: 1.3;
   font-weight: 100;
   font-family: Rowdies;
@@ -109,10 +127,420 @@ body {
 .ordernow a {
   margin-left: 350px;
   text-decoration: none;
-  color: white;
+  color: #c7efc5; /* Light green text */
   text-transform: uppercase;
-  background-color: #ff3b3f;
+  background-color: #c47391; /* Dusty pink background */
   padding: 10px;
   font-size: 1em;
   border-radius: 15px;
+}
+.cart {
+  display: flex;
+  gap: 20px;
+}
+
+.cart a {
+  text-decoration: none;
+  background-color: #c47391; /* Dusty pink */
+  color: #c7efc5; /* Light green */
+  padding: 12px 20px;
+  border-radius: 50px;
+  transform: scale(1);
+  font-family: "Rowdies", sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+.cart a:hover {
+  background-color: #c7efc5; /* Light green */
+  color: #591647; /* Dark plum */
+  transform: scale(1.2);
+  transition: all 0.5s ease;
+}
+
+/* Popup Styles */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  background: #8a3459; /* Dark magenta for popup background */
+  padding: 2rem;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #75b77b; /* Olive green for close icon */
+  font-family: "Changa One", sans-serif;
+}
+
+.popup-form {
+  display: none;
+}
+
+.popup-form.active {
+  display: block;
+}
+
+.popup-form h2 {
+  font-family: "Changa One", sans-serif;
+  color: #75b77b; /* Olive green for heading */
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.popup-form input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #c47391; /* Dusty pink border */
+  border-radius: 5px;
+  font-family: "Rowdies", sans-serif;
+  font-size: 1em;
+  background: #c7efc5; /* Light green background */
+  color: #591647; /* Dark plum text */
+}
+
+.popup-form button {
+  width: 100%;
+  padding: 10px;
+  background: #c47391; /* Dusty pink */
+  color: #c7efc5; /* Light green */
+  border: none;
+  border-radius: 50px;
+  font-family: "Rowdies", sans-serif;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.popup-form button:hover {
+  background: #c7efc5; /* Light green */
+  color: #591647; /* Dark plum */
+  border: 1px solid #c47391; /* Dusty pink border */
+}
+
+.popup-form p {
+  text-align: center;
+  margin-top: 1rem;
+  font-family: "Rowdies", sans-serif;
+  font-size: 0.9em;
+  color: #c7efc5; /* Light green */
+}
+
+.popup-form a {
+  color: #75b77b; /* Olive green */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.popup-form a:hover {
+  text-decoration: underline;
+}
+.cart-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+}
+
+.side-cart {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 300px;
+  height: 100%;
+  background: #8a3459; /* Dark magenta */
+  padding: 2rem;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
+  transition: right 0.3s ease;
+}
+
+.side-cart.active {
+  right: 0;
+}
+
+.cart-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #75b77b; /* Olive green */
+  font-family: "Changa One", sans-serif;
+}
+
+.side-cart h2 {
+  font-family: "Changa One", sans-serif;
+  color: #75b77b; /* Olive green */
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.cart-items {
+  margin-bottom: 1rem;
+}
+
+.cart-items p {
+  font-family: "Rowdies", sans-serif;
+  color: #c7efc5; /* Light green */
+  text-align: center;
+}
+
+.cart-item {
+  border-bottom: 1px solid #c47391; /* Dusty pink */
+  padding: 10px 0;
+}
+
+.cart-item h3 {
+  font-family: "Rowdies", sans-serif;
+  font-size: 1.1em;
+  color: #c7efc5; /* Light green */
+}
+
+.cart-item p {
+  font-family: "Rowdies", sans-serif;
+  font-size: 0.9em;
+  color: #c7efc5; /* Light green */
+}
+
+.remove-item {
+  background: #c47391; /* Dusty pink */
+  color: #c7efc5; /* Light green */
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Rowdies", sans-serif;
+  font-size: 0.8em;
+}
+
+.remove-item:hover {
+  background: #c7efc5; /* Light green */
+  color: #591647; /* Dark plum */
+  border: 1px solid #c47391; /* Dusty pink */
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 10px;
+  background: #c47391; /* Dusty pink */
+  color: #c7efc5; /* Light green */
+  border: none;
+  border-radius: 50px;
+  font-family: "Rowdies", sans-serif;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.checkout-btn:hover {
+  background: #c7efc5; /* Light green */
+  color: #591647; /* Dark plum */
+  border: 1px solid #c47391; /* Dusty pink */
+}
+.about {
+  position: relative;
+}
+.about h1 {
+  position: absolute;
+  top: 300px;
+  color: #591647; /* Dark plum */
+  font-size: 9vw;
+  max-width: 850px;
+  left: 200px;
+  font-family: Rowdies;
+  transform: scale(1.3, 1.3);
+  line-height: 1;
+  text-transform: uppercase;
+  text-shadow: -2px -2px 0 #c7efc5, 2px -2px 0 #c7efc5, -2px 2px 0 #c7efc5,
+    2px 2px 0 #c7efc5, 0 0 5px #c7efc5, 0 0 10px #c7efc5; /* Light green shadow */
+}
+
+.till-line {
+  position: absolute;
+  top: 112vw;
+  transform: rotate(-4deg);
+  width: 130%;
+}
+.till-line h1 {
+  display: flex;
+  gap: 30px;
+  color: #c7efc5; /* Light green */
+  align-items: center;
+  background-color: #8a3459; /* Dark magenta */
+  padding: 12px 20px;
+  font-size: 2em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: sans-serif;
+}
+
+.till-line h1:hover i {
+  transform: scale(1.2);
+}
+.products {
+  position: relative; /* Changed from absolute to relative for better flow */
+  top: 190vh; /* Adjusted to place below header and till-line */
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.products h2 {
+  font-family: "Changa One", sans-serif;
+  font-size: 2.5em;
+  color: #75b77b; /* Olive green */
+  margin-bottom: 220px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.product-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  background-image: url(Assets/proudct.png);
+  background-size: 150px;
+  background-color: #c47391; /* Dusty pink */
+  /* Removed background-image to avoid redundancy with <img> */
+  width: 400px;
+  height: 410px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 20px;
+  /* overflow: hidden; */
+  transition: transform 0.3s ease;
+}
+
+.product-card img:hover {
+  transform: translateY(-10px);
+}
+
+.product-card img {
+  width: 100%; /* Full width of card */
+  height: auto; /* Maintain aspect ratio */
+  margin-top: -220px;
+}
+
+.product-text {
+  transform: translateY(-60px);
+  padding-top: 0;
+  line-height: 40px;
+  text-align: center;
+}
+
+.product-text h3 {
+  font-size: 1.7em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: #c7efc5; /* Light green */
+}
+
+.product-text p {
+  color: #c7efc5; /* Light green */
+  font-size: 0.9em;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.product-text a {
+  text-decoration: none;
+  background-color: #c7efc5; /* Light green */
+  color: #591647; /* Dark plum */
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+.loader {
+  position: fixed;
+  inset: 0;
+  background: #591647; /* Dark plum */
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+  padding: 20px;
+}
+
+.loader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader-number {
+  font-size: 8rem; /* Big size */
+  font-family: "Changa One", sans-serif;
+  font-weight: bold;
+  background: linear-gradient(
+    90deg,
+    #75b77b,
+    #c7efc5
+  ); /* Olive to light green */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(199, 239, 197, 0.5); /* Light green shadow */
+}
+
+.advantages {
+  position: absolute;
+  top: 190vw;
+  width: 100vw;
+}
+.advantages-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.advantages-content h1 {
+  font-size: 4vw;
+  line-height: 80px;
+  color: #c7efc5; /* Light green */
+  padding: 12px 25px;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+}
+.advantages-content h1:nth-child(1) {
+  background: linear-gradient(135deg, #ffb74d, #ff8c00);
+  transform: rotate(-2deg);
+}
+.advantages-content h1:nth-child(2) {
+  background: linear-gradient(135deg, #d81b60, #9c27b0);
+  transform: rotate(1deg);
+}
+.advantages-content h1:nth-child(3) {
+  background: linear-gradient(135deg, #ff5722, #f28c38);
+}
+.advantages-content h1:nth-child(4) {
+  background: linear-gradient(135deg, #ff3b3f, #e91e63);
 }
