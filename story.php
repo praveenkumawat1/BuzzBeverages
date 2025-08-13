@@ -2,679 +2,630 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Our Story - Fresh Juice Co.</title>
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-    <!-- GSAP CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buzz Beverages - Our Story</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&family=Changa+One:ital@0;1&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
     <style>
-    :root {
-        --accent: #ff7f00;
-        --accent-2: #ffb348;
-        --bg: #080808;
-        --card: #fff;
-        --muted: #6b6b6b;
-    }
-
     * {
-        box-sizing: border-box
-    }
-
-    html,
-    body {
-        height: 100%;
+        padding: 0;
         margin: 0;
-        font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+        box-sizing: border-box;
     }
 
     body {
-        background: linear-gradient(180deg, #0b0b0b, #0f0f0f);
-        color: #fff;
+        width: 100vw;
+        min-height: 100vh;
+        background: #1a000f;
+        /* Deep plum base */
         overflow-x: hidden;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+        font-family: "Rowdies", sans-serif;
+        color: #ffffff;
     }
 
-    /* ---------- HERO ---------- */
-    .hero {
-        position: relative;
-        height: 100vh;
+    .back-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+    }
+
+    .back-button a {
+        text-decoration: none;
+        background: linear-gradient(90deg, #ff3b3f, #e91e63);
+        /* Strawberry */
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-family: "Rowdies", sans-serif;
+        font-size: 1rem;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
         display: flex;
         align-items: center;
-        justify-content: center;
+        gap: 8px;
+        box-shadow: 0 5px 15px rgba(255, 59, 63, 0.5);
+    }
+
+    .back-button a:hover {
+        background: #75b77b;
+        /* Olive green */
+        color: #1a000f;
+        /* Plum */
+        transform: scale(1.1);
+        box-shadow: 0 10px 20px rgba(117, 183, 123, 0.7);
+    }
+
+    .our-story {
+        position: relative;
+        padding: 100px 5% 80px;
+        background: linear-gradient(135deg, rgba(216, 27, 96, 0.2), rgba(156, 39, 176, 0.2));
+        /* Faded berry */
+        backdrop-filter: blur(8px);
         text-align: center;
-        padding: 40px 20px;
         overflow: hidden;
     }
 
-    .bg-video {
+    .our-story::before {
+        content: '';
         position: absolute;
         inset: 0;
+        background: radial-gradient(circle, rgba(216, 27, 96, 0.3) 0%, transparent 70%);
+        animation: pulse 12s infinite ease-in-out;
+        z-index: -1;
+    }
+
+    @keyframes pulse {
+
+        0%,
+        100% {
+            transform: scale(1);
+            opacity: 0.2;
+        }
+
+        50% {
+            transform: scale(1.5);
+            opacity: 0.1;
+        }
+    }
+
+    .story-header {
+        position: relative;
+        margin-bottom: 60px;
+    }
+
+    .story-header h1 {
+        font-family: "Changa One", sans-serif;
+        font-size: 5.5rem;
+        color: #ffffff;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        background: linear-gradient(90deg, #d81b60, #9c27b0);
+        /* Berry */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 25px rgba(117, 183, 123, 0.7);
+        /* Olive green glow */
+        position: relative;
+    }
+
+    .story-header h1::after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 5px;
+        background: linear-gradient(90deg, #ff3b3f, #e91e63);
+        /* Strawberry */
+        border-radius: 3px;
+        animation: underline 4s infinite ease-in-out;
+    }
+
+    @keyframes underline {
+
+        0%,
+        100% {
+            width: 120px;
+        }
+
+        50% {
+            width: 180px;
+        }
+    }
+
+    .story-hero {
+        position: relative;
+        margin-bottom: 80px;
+    }
+
+    .story-hero img {
+        width: 100%;
+        max-width: 450px;
+        height: auto;
+        filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.6));
+        transform: rotate(8deg);
+        margin: 0 auto;
+        display: block;
+    }
+
+    .story-intro {
+        max-width: 1000px;
+        margin: 0 auto 100px;
+    }
+
+    .story-intro p {
+        font-size: 1.4rem;
+        color: #f4e1e6;
+        /* Soft pink */
+        line-height: 1.8;
+        font-weight: 300;
+        text-shadow: 0 0 8px rgba(244, 225, 230, 0.6);
+    }
+
+    .story-timeline {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        padding: 40px 0;
+    }
+
+    .story-timeline::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(to bottom, #ff3b3f, #e91e63);
+        /* Strawberry */
+        z-index: 0;
+    }
+
+    .timeline-card {
+        background: linear-gradient(135deg, #ffb74d, #ff8c00);
+        /* Mango */
+        border-radius: 20px;
+        padding: 30px;
+        width: 350px;
+        min-height: 200px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+        position: relative;
+        margin: 20px 0;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .timeline-card:nth-child(odd) {
+        margin-left: 60px;
+        transform: rotate(2deg);
+    }
+
+    .timeline-card:nth-child(even) {
+        margin-left: auto;
+        margin-right: 60px;
+        transform: rotate(-2deg);
+    }
+
+    .timeline-card:nth-child(2) {
+        background: linear-gradient(135deg, #d81b60, #9c27b0);
+        /* Berry */
+    }
+
+    .timeline-card:nth-child(3) {
+        background: linear-gradient(135deg, #ff5722, #f28c38);
+        /* Orange */
+    }
+
+    .timeline-card:nth-child(4) {
+        background: linear-gradient(135deg, #ff3b3f, #e91e63);
+        /* Strawberry */
+    }
+
+    .timeline-card::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        width: 20px;
+        height: 20px;
+        background: #75b77b;
+        /* Olive green */
+        border-radius: 50%;
+        z-index: 1;
+        transform: translateY(-50%);
+        box-shadow: 0 0 15px rgba(117, 183, 123, 0.7);
+        animation: pulse-dot 2s infinite ease-in-out;
+    }
+
+    .timeline-card:nth-child(odd)::before {
+        left: -50px;
+    }
+
+    .timeline-card:nth-child(even)::before {
+        right: -50px;
+    }
+
+    @keyframes pulse-dot {
+
+        0%,
+        100% {
+            transform: translateY(-50%) scale(1);
+        }
+
+        50% {
+            transform: translateY(-50%) scale(1.2);
+        }
+    }
+
+    .timeline-card::after {
+        content: '';
+        position: absolute;
+        top: -30px;
+        left: -30px;
+        width: 60px;
+        height: 60px;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 20%, transparent 70%);
+        opacity: 0.5;
+        border-radius: 50%;
+        z-index: -1;
+    }
+
+    .timeline-card:hover::after {
+        opacity: 0.8;
+        transform: scale(1.3);
+    }
+
+    .timeline-card h2 {
+        font-family: "Changa One", sans-serif;
+        font-size: 2rem;
+        color: #ffffff;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    }
+
+    .timeline-card p {
+        font-size: 1.1rem;
+        color: #f4e1e6;
+        /* Soft pink */
+        line-height: 1.6;
+    }
+
+    .timeline-card:hover {
+        transform: translateY(-10px) rotate(0deg);
+        box-shadow: 0 20px 40px rgba(255, 59, 63, 0.7);
+    }
+
+    .reveal-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
-        object-fit: cover;
-        z-index: 0;
-        filter: brightness(55%) saturate(120%);
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+        transform: scaleX(0);
+        transform-origin: left;
+        z-index: -1;
+        transition: transform 0.5s ease;
     }
 
-    .hero-overlay {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(180deg, rgba(8, 8, 8, 0.35), rgba(8, 8, 8, 0.6));
-        z-index: 1;
+    .timeline-card:hover .reveal-bg {
+        transform: scaleX(1);
     }
 
-    .hero-inner {
-        position: relative;
-        z-index: 2;
-        max-width: 1100px;
-        padding: 20px;
+    .story-cta {
+        margin-top: 80px;
+        padding-bottom: 60px;
     }
 
-    .kicker {
-        display: inline-block;
-        background: rgba(255, 255, 255, 0.06);
-        padding: 8px 14px;
-        border-radius: 999px;
-        color: var(--accent-2);
-        font-weight: 600;
-        margin-bottom: 14px;
-        backdrop-filter: blur(6px);
+    .story-cta a {
+        text-decoration: none;
+        background: linear-gradient(90deg, #ff3b3f, #e91e63);
+        /* Strawberry */
+        color: #ffffff;
+        padding: 15px 40px;
+        border-radius: 50px;
+        font-family: "Rowdies", sans-serif;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 20px rgba(255, 59, 63, 0.6);
     }
 
-    h1 {
-        font-size: clamp(2rem, 5vw, 4rem);
-        margin: 10px 0 12px;
-        line-height: 1;
-        letter-spacing: 1px;
-        background: linear-gradient(90deg, var(--accent), #00d8c8);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent
+    .story-cta a:hover {
+        background: #75b77b;
+        /* Olive green */
+        color: #1a000f;
+        /* Plum */
+        transform: scale(1.15);
+        box-shadow: 0 10px 25px rgba(117, 183, 123, 0.8);
     }
 
-    .hero-sub {
-        color: rgba(255, 255, 255, 0.85);
-        font-size: clamp(1rem, 1.6vw, 1.25rem);
-        margin-bottom: 20px
-    }
-
-    .hero-cta {
-        display: flex;
-        gap: 12px;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-top: 18px;
-    }
-
-    .btn {
-        padding: 12px 22px;
-        border-radius: 40px;
-        border: 0;
-        cursor: pointer;
-        font-weight: 700;
-        color: #111;
-        background: var(--accent-2);
-        box-shadow: 0 6px 18px rgba(255, 123, 20, 0.18);
-        transition: transform .22s ease;
-    }
-
-    .btn:hover {
-        transform: translateY(-4px)
-    }
-
-    .ghost {
-        background: transparent;
-        border: 2px solid rgba(255, 255, 255, 0.12);
-        color: #fff;
-        padding: 10px 18px;
-        border-radius: 40px;
-    }
-
-    /* back */
-    .back-btn {
-        position: fixed;
-        left: 18px;
-        top: 18px;
-        z-index: 9999;
-        padding: 10px 14px;
-        border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        background: rgba(0, 0, 0, 0.35);
-        color: #fff;
-        backdrop-filter: blur(6px);
-        cursor: pointer;
-    }
-
-    /* ---------- SECTIONS ---------- */
-    main {
-        position: relative;
-        z-index: 2
-    }
-
-    section {
-        padding: 80px 6%
-    }
-
-    .container {
-        max-width: 1200px;
-        margin: 0 auto
-    }
-
-    h2 {
-        font-size: 1.75rem;
-        color: var(--accent);
-        margin-bottom: 20px
-    }
-
-    p.lead {
-        color: rgba(255, 255, 255, 0.9);
-        font-size: 1.05rem;
-        line-height: 1.7;
-        max-width: 900px;
-        margin: 0 auto 28px
-    }
-
-    /* Timeline */
-    .timeline {
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
-        border-radius: 14px;
-        padding: 28px
-    }
-
-    .steps {
-        display: flex;
-        flex-direction: column;
-        gap: 18px
-    }
-
-    .step {
-        display: flex;
-        gap: 20px;
-        align-items: flex-start
-    }
-
-    .step .marker {
-        min-width: 56px;
-        height: 56px;
-        border-radius: 12px;
-        background: linear-gradient(180deg, var(--accent), var(--accent-2));
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 800;
-        color: #111
-    }
-
-    .step .body h4 {
-        margin: 0 0 6px;
-        color: #fff
-    }
-
-    .step .body p {
-        margin: 0;
-        color: rgba(255, 255, 255, 0.85)
-    }
-
-    /* Values */
-    .values {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-        gap: 18px;
-        margin-top: 18px
-    }
-
-    .card {
-        background: rgba(255, 255, 255, 0.05);
-        padding: 18px;
-        border-radius: 12px;
-        text-align: center;
-        min-height: 110px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center
-    }
-
-    .card .emoji {
-        font-size: 1.6rem;
-        margin-bottom: 8px
-    }
-
-    /* Behind / image */
-    .behind {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 18px
-    }
-
-    .behind img {
-        width: 100%;
-        max-width: 900px;
-        border-radius: 12px;
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6)
-    }
-
-    /* Impact */
-    .impact {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px
-    }
-
-    .badges {
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 12px
-    }
-
-    .badge {
-        background: linear-gradient(90deg, var(--accent-2), var(--accent));
-        padding: 10px 14px;
-        border-radius: 30px;
-        color: #111;
-        font-weight: 700
-    }
-
-    /* Gallery */
-    .grid {
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
-        justify-content: center
-    }
-
-    .grid img {
-        width: 100%;
-        max-width: 320px;
-        border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5)
-    }
-
-    /* Testimonials */
-    .testimonials {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        align-items: center
-    }
-
-    blockquote {
-        background: rgba(255, 255, 255, 0.03);
-        padding: 18px;
-        border-left: 4px solid rgba(255, 255, 255, 0.06);
-        max-width: 900px;
-        border-radius: 8px
-    }
-
-    /* CTA */
-    .cta {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 12px
-    }
-
-    /* responsive */
-    @media (min-width:900px) {
-        .steps {
-            flex-direction: row
+    @media (max-width: 768px) {
+        .our-story {
+            padding: 80px 5% 60px;
         }
 
-        .step {
-            flex: 1
+        .story-header h1 {
+            font-size: 3.5rem;
+        }
+
+        .story-hero img {
+            max-width: 300px;
+        }
+
+        .story-intro p {
+            font-size: 1.2rem;
+        }
+
+        .story-timeline::before {
+            left: 30px;
+        }
+
+        .timeline-card {
+            width: 100%;
+            max-width: 350px;
+            margin: 20px auto;
+            transform: rotate(0deg);
+        }
+
+        .timeline-card:nth-child(odd),
+        .timeline-card:nth-child(even) {
+            margin-left: 60px;
+            margin-right: 20px;
+        }
+
+        .timeline-card:nth-child(odd)::before {
+            left: -40px;
+        }
+
+        .timeline-card:nth-child(even)::before {
+            left: -40px;
+        }
+
+        .timeline-card h2 {
+            font-size: 1.6rem;
+        }
+
+        .story-cta a {
+            font-size: 1.2rem;
+            padding: 12px 30px;
+        }
+
+        .back-button a {
+            font-size: 0.9rem;
+            padding: 8px 15px;
         }
     }
 
-    @media (max-width:600px) {
-        .hero-sub {
-            font-size: 0.95rem
+    @media (max-width: 480px) {
+        .story-header h1 {
+            font-size: 2.5rem;
         }
 
-        section {
-            padding: 60px 6%
+        .story-hero img {
+            max-width: 250px;
         }
-    }
 
-    /* small decorative bubbles */
-    .juice-bubble {
-        position: fixed;
-        bottom: -40px;
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        background: rgba(255, 127, 0, 0.25);
-        pointer-events: none;
-        filter: blur(.4px);
-        z-index: 1
+        .story-intro p {
+            font-size: 1rem;
+        }
+
+        .timeline-card {
+            padding: 20px;
+            min-height: 180px;
+        }
+
+        .timeline-card h2 {
+            font-size: 1.4rem;
+        }
+
+        .timeline-card p {
+            font-size: 0.9rem;
+        }
+
+        .story-cta a {
+            font-size: 1rem;
+            padding: 10px 25px;
+        }
     }
     </style>
 </head>
 
 <body>
-
-    <!-- Back to Home -->
-    <button class="back-btn" id="backBtn" aria-label="Back to Home">← Home</button>
-
-    <!-- HERO -->
-    <header class="hero" role="banner">
-        <!-- replace src with your hero juice video, fallback poster or image recommended -->
-        <video class="bg-video" autoplay muted loop playsinline poster="" id="heroVideo">
-            <source src="juice-video.mp4" type="video/mp4">
-            <!-- Fallback image for browsers not supporting video -->
-        </video>
-        <div class="hero-overlay" aria-hidden="true"></div>
-
-        <div class="hero-inner container">
-            <div class="kicker">Fresh Juice Co.</div>
-            <h1 class="hero-title">From Nature<br />to Your Glass</h1>
-            <p class="hero-sub">Hand-picked fruits · Cold pressed · No preservatives · Delivered fresh</p>
-
-            <div class="hero-cta">
-                <button class="btn" id="shopBtn">Shop Now</button>
-                <button class="ghost" id="learnBtn">Learn More</button>
+    <div class="back-button">
+        <a href="index.php">← Back</a>
+    </div>
+    <section class="our-story">
+        <div class="story-header">
+            <h1>Our Story</h1>
+        </div>
+        <div class="story-hero">
+            <img src="Assets/juice-bottle.png" alt="Buzz Beverages Juice Bottle">
+        </div>
+        <div class="story-intro">
+            <p>At Buzz Beverages, we’re driven by a passion for crafting juices that awaken your senses and nourish your
+                body. Inspired by the vibrant, nostalgic flavors of childhood sodas, we blend natural, gut-friendly
+                ingredients to create drinks that spark joy and energy. Our journey began with a simple idea and has
+                grown into a global mission to deliver health and happiness in every sip.</p>
+        </div>
+        <div class="story-timeline">
+            <div class="timeline-card">
+                <h2>The Idea</h2>
+                <p>In 2020, our founders mixed their first juice in a small kitchen, aiming to capture the fun of sodas
+                    with a healthy twist.</p>
+                <div class="reveal-bg"></div>
+            </div>
+            <div class="timeline-card">
+                <h2>The Launch</h2>
+                <p>In 2022, Buzz Beverages was born, introducing our signature microbiome-supporting juices to the
+                    world.</p>
+                <div class="reveal-bg"></div>
+            </div>
+            <div class="timeline-card">
+                <h2>Global Impact</h2>
+                <p>By 2025, our juices became a favorite among health-conscious drinkers, spreading joy worldwide.</p>
+                <div class="reveal-bg"></div>
+            </div>
+            <div class="timeline-card">
+                <h2>Our Future</h2>
+                <p>We’re innovating new flavors and sustainable practices to keep the buzz alive for generations.</p>
+                <div class="reveal-bg"></div>
             </div>
         </div>
-    </header>
-
-    <main>
-        <!-- Timeline -->
-        <section class="timeline container" id="timelineSection" aria-labelledby="journeyTitle">
-            <h2 id="journeyTitle">Our Journey</h2>
-            <p class="lead">Step by step — how a small idea turned into a local movement for natural refreshments.</p>
-            <div class="steps">
-                <div class="step">
-                    <div class="marker">2018</div>
-                    <div class="body">
-                        <h4>Humble Beginnings</h4>
-                        <p>We started in a small kitchen, experimenting with fruits and extraction methods until the
-                            flavor felt perfect.</p>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="marker">2020</div>
-                    <div class="body">
-                        <h4>Local Partnerships</h4>
-                        <p>Partnered with local farmers to source organic fruit and ensure fair practices for growers.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="marker">2023</div>
-                    <div class="body">
-                        <h4>Fresh Delivery</h4>
-                        <p>Launched our delivery network so customers could enjoy freshly pressed juice at home.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Mission & Values -->
-        <section class="container" id="missionSection" aria-labelledby="missionTitle">
-            <h2 id="missionTitle">Our Mission & Values</h2>
-            <p class="lead">We believe in purity, sustainability, and the joy of real taste.</p>
-            <div class="values" role="list">
-                <div class="card" role="listitem">
-                    <div class="emoji">🍊</div>
-                    <strong>Purity</strong>
-                    <div style="margin-top:8px;color:rgba(255,255,255,0.85)">No preservatives — only real fruit.</div>
-                </div>
-                <div class="card" role="listitem">
-                    <div class="emoji">🌱</div>
-                    <strong>Sustainability</strong>
-                    <div style="margin-top:8px;color:rgba(255,255,255,0.85)">Eco-friendly packaging and local sourcing.
-                    </div>
-                </div>
-                <div class="card" role="listitem">
-                    <div class="emoji">💚</div>
-                    <strong>Wellness</strong>
-                    <div style="margin-top:8px;color:rgba(255,255,255,0.85)">Nutritious blends for everyday energy.
-                    </div>
-                </div>
-                <div class="card" role="listitem">
-                    <div class="emoji">🤝</div>
-                    <strong>Community</strong>
-                    <div style="margin-top:8px;color:rgba(255,255,255,0.85)">Supporting farmers and local initiatives.
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Behind The Scenes -->
-        <section class="behind container" id="behindSection" aria-labelledby="behindTitle">
-            <h2 id="behindTitle">Behind the Scenes</h2>
-            <p class="lead">From hand picking to careful pressing — here's a peek behind the curtain.</p>
-            <img src="behind.jpg" alt="Team working, fruit selection, packing" id="behindImg">
-        </section>
-
-        <!-- Impact -->
-        <section class="impact container" id="impactSection" aria-labelledby="impactTitle">
-            <h2 id="impactTitle">Impact & Sustainability</h2>
-            <p class="lead">We prioritize the planet as much as the taste. Small choices add up.</p>
-            <div class="badges" aria-hidden="true">
-                <div class="badge">Recyclable Packaging</div>
-                <div class="badge">Local Farmers</div>
-                <div class="badge">Organic Choices</div>
-            </div>
-        </section>
-
-        <!-- Gallery -->
-        <section class="gallery container" id="gallerySection" aria-labelledby="galleryTitle">
-            <h2 id="galleryTitle">Our Gallery</h2>
-            <div class="grid" id="galleryGrid">
-                <img src="juice1.jpg" alt="Juice close up 1">
-                <img src="juice2.jpg" alt="Juice close up 2">
-                <img src="juice3.jpg" alt="Juice close up 3">
-            </div>
-        </section>
-
-        <!-- Testimonials -->
-        <section class="testimonials container" id="testimonialsSection" aria-labelledby="testiTitle">
-            <h2 id="testiTitle">Customer Love</h2>
-            <blockquote>"Best juice I’ve ever tasted — pure and refreshing!" — Riya</blockquote>
-            <blockquote>"My daily boost of energy — highly recommend." — Arjun</blockquote>
-        </section>
-
-        <!-- CTA -->
-        <section class="cta container" id="ctaSection" aria-labelledby="ctaTitle">
-            <h2 id="ctaTitle">Join Our Journey</h2>
-            <p class="lead">Taste the difference today — fresh, cold-pressed, and responsibly made.</p>
-            <div class="hero-cta">
-                <button class="btn" id="shopNow">Shop Now</button>
-                <button class="ghost" id="contactBtn">Contact Us</button>
-            </div>
-        </section>
-    </main>
-
+        <div class="story-cta">
+            <a href="#ordernow">Join the Buzz</a>
+        </div>
+    </section>
     <script>
-    // ---------- Helpers ----------
     gsap.registerPlugin(ScrollTrigger);
 
-    // simple decorative juice bubbles that float up (non-critical)
-    function spawnBubble() {
-        const b = document.createElement('div');
-        b.className = 'juice-bubble';
-        const size = 10 + Math.random() * 30;
-        b.style.width = size + 'px';
-        b.style.height = size + 'px';
-        b.style.left = (Math.random() * 100) + 'vw';
-        b.style.bottom = -40 - Math.random() * 80 + 'px';
-        b.style.opacity = (0.12 + Math.random() * 0.25);
-        document.body.appendChild(b);
-        gsap.to(b, {
-            y: -120 - Math.random() * 200,
-            opacity: 0,
-            duration: 4 + Math.random() * 3,
-            ease: "power1.out",
-            onComplete: () => b.remove()
-        });
-    }
-    setInterval(spawnBubble, 700);
-
-    // ---------- Hero animations ----------
-    gsap.from(".kicker", {
-        y: 20,
+    gsap.from(".back-button a", {
+        scrollTrigger: {
+            trigger: ".our-story",
+            start: "top 90%",
+            end: "top 20%",
+            scrub: 0.5
+        },
+        x: -100,
         opacity: 0,
         duration: 0.8,
-        delay: 0.2
-    });
-    gsap.from(".hero-title", {
-        y: 40,
-        opacity: 0,
-        duration: 1,
-        delay: 0.35,
         ease: "power3.out"
     });
-    gsap.from(".hero-sub", {
-        y: 20,
+
+    gsap.from(".story-header h1", {
+        scrollTrigger: {
+            trigger: ".story-header",
+            start: "top 80%",
+            end: "top 20%",
+            scrub: 0.5
+        },
+        y: 200,
+        opacity: 0,
+        scale: 0.7,
+        duration: 1.2,
+        ease: "power3.out"
+    });
+
+    gsap.from(".story-hero img", {
+        scrollTrigger: {
+            trigger: ".story-hero",
+            start: "top 80%",
+            end: "top 20%",
+            scrub: 0.5
+        },
+        x: 300,
+        opacity: 0,
+        rotation: -15,
+        duration: 1.2,
+        ease: "power3.out"
+    });
+
+    gsap.from(".story-intro p", {
+        scrollTrigger: {
+            trigger: ".story-intro",
+            start: "top 80%",
+            end: "top 20%",
+            scrub: 0.5
+        },
+        x: -300,
         opacity: 0,
         duration: 1,
-        delay: 0.55
-    });
-    gsap.from(".hero-cta .btn", {
-        scale: 0.9,
-        opacity: 0,
-        duration: 0.8,
-        delay: 0.8,
-        stagger: 0.12
+        ease: "power3.out"
     });
 
-    // ---------- Section reveal on scroll ----------
-    gsap.utils.toArray("main section").forEach((sect, i) => {
-        gsap.from(sect, {
-            scrollTrigger: {
-                trigger: sect,
-                start: "top 82%",
-                toggleActions: "play none none reverse"
-            },
-            y: 40,
-            opacity: 0,
-            duration: 0.9,
-            delay: 0.08
-        });
-    });
-
-    // timeline steps animate individually
-    gsap.utils.toArray(".step").forEach((el, idx) => {
-        gsap.from(el, {
-            scrollTrigger: {
-                trigger: el,
-                start: "top 90%"
-            },
-            y: 30,
-            opacity: 0,
-            duration: 0.7,
-            delay: idx * 0.08
-        });
-    });
-
-    // gallery image hover scale
-    document.querySelectorAll('.grid img').forEach(img => {
-        img.style.cursor = 'pointer';
-        img.addEventListener('mouseenter', () => gsap.to(img, {
-            scale: 1.04,
-            duration: 0.4
-        }));
-        img.addEventListener('mouseleave', () => gsap.to(img, {
-            scale: 1,
-            duration: 0.4
-        }));
-    });
-
-    // testimonials small stagger
-    gsap.from(".testimonials blockquote", {
+    gsap.from(".timeline-card", {
         scrollTrigger: {
-            trigger: ".testimonials",
-            start: "top 85%"
+            trigger: ".story-timeline",
+            start: "top 80%",
+            end: "bottom 20%",
+            scrub: 0.5
         },
-        y: 20,
+        y: 200,
         opacity: 0,
-        stagger: 0.16,
-        duration: 0.8
+        stagger: 0.3,
+        rotation: (index) => index % 2 === 0 ? 10 : -10,
+        duration: 1.2,
+        ease: "elastic.out(1, 0.4)"
     });
 
-    // CTA buttons
-    gsap.from(".cta .btn", {
+    gsap.from(".timeline-card::before", {
         scrollTrigger: {
-            trigger: ".cta",
-            start: "top 85%"
+            trigger: ".story-timeline",
+            start: "top 80%",
+            end: "bottom 20%",
+            scrub: 0.5
         },
-        y: 20,
+        scale: 0,
         opacity: 0,
-        duration: 0.8,
-        delay: 0.1
+        stagger: 0.3,
+        duration: 1,
+        ease: "power3.out"
     });
 
-    // ---------- Back button behavior ----------
-    const backBtn = document.getElementById('backBtn');
-    backBtn.addEventListener('click', () => {
-        // animation then redirect
-        gsap.to('body', {
-            opacity: 0,
-            duration: 0.45,
-            onComplete: () => {
-                // change this path to your real home page
-                window.location.href = 'index.php';
-            }
+    gsap.from(".story-cta a", {
+        scrollTrigger: {
+            trigger: ".story-cta",
+            start: "top 80%",
+            end: "top 20%",
+            scrub: 0.5
+        },
+        scale: 0.6,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out"
+    });
+
+    document.querySelectorAll(".timeline-card").forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+            gsap.to(card, {
+                scale: 1.1,
+                duration: 0.4,
+                ease: "power2.inOut"
+            });
+            gsap.to(card.querySelector(".reveal-bg"), {
+                scaleX: 1,
+                duration: 0.6,
+                ease: "power3.out"
+            });
+            gsap.to(card.querySelector("h2"), {
+                scale: 1.05,
+                duration: 0.4,
+                ease: "power2.inOut"
+            });
+            gsap.to(card, {
+                boxShadow: "0 20px 40px rgba(255, 59, 63, 0.7)",
+                duration: 0.4
+            });
+        });
+        card.addEventListener("mouseleave", () => {
+            gsap.to(card, {
+                scale: 1,
+                duration: 0.4,
+                ease: "power2.inOut"
+            });
+            gsap.to(card.querySelector(".reveal-bg"), {
+                scaleX: 0,
+                duration: 0.6,
+                ease: "power3.in"
+            });
+            gsap.to(card.querySelector("h2"), {
+                scale: 1,
+                duration: 0.4,
+                ease: "power2.inOut"
+            });
+            gsap.to(card, {
+                boxShadow: "0 12px 30px rgba(0, 0, 0, 0.5)",
+                duration: 0.4
+            });
         });
     });
-
-    // Shop buttons example (scroll to CTA or open shop)
-    document.getElementById('shopBtn').addEventListener('click', () => {
-        // example: scroll to CTA section
-        gsap.to(window, {
-            duration: 0.8,
-            scrollTo: {
-                y: '#ctaSection',
-                offsetY: 80
-            },
-            ease: 'power2.inOut'
-        });
-    });
-
-    // "Learn More" scroll to timeline
-    document.getElementById('learnBtn').addEventListener('click', () => {
-        gsap.to(window, {
-            duration: 0.8,
-            scrollTo: {
-                y: '#timelineSection',
-                offsetY: 80
-            },
-            ease: 'power2.inOut'
-        });
-    });
-
-    // small accessibility: pause hero video on click (toggle)
-    const heroVideo = document.getElementById('heroVideo');
-    heroVideo && heroVideo.addEventListener('click', () => {
-        if (heroVideo.paused) heroVideo.play();
-        else heroVideo.pause();
-    });
-
-    // If ScrollTo plugin not available, fallback to native
-    // (some CDNs don't include ScrollTo, so guard)
-    (function ensureScrollTo() {
-        if (typeof gsap.getById !== 'undefined' && !gsap.core.getProperty) {
-            /* noop */
-        }
-        // if gsap.scrollTo not present, already used only if present above
-    })();
     </script>
-
-    <!-- Replace these filenames with your real media files:
-       juice-video.mp4, behind.jpg, juice1.jpg, juice2.jpg, juice3.jpg
-       If you don't want a video, remove <video> and add a hero background-image instead. -->
 </body>
 
 </html>

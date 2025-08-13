@@ -152,7 +152,39 @@
             </div>
         </div>
     </main>
-    <footer>
+
+    <footer class="footer">
+        <div class="footer-slider-container">
+            <div class="footer-img">
+                <img src="https://i.pinimg.com/736x/d9/31/29/d93129b37f8ecf1ae98833834179f7ce.jpg" alt="">
+                <img src="https://i.pinimg.com/736x/fd/b2/d9/fdb2d9cc097a86313b8d41df6c254d68.jpg" alt="">
+                <img src="https://i.pinimg.com/736x/f5/78/b2/f578b2323729173e46bc0bcd533fd6ac.jpg" alt="">
+                <img src="https://i.pinimg.com/736x/59/43/a2/5943a28e40716d6006c56fb8820289af.jpg" alt="">
+                <img src="https://i.pinimg.com/736x/e7/d6/64/e7d6640ba71e3e6e2ed49a0e14982c93.jpg" alt="">
+                <img src="https://i.pinimg.com/736x/c6/b5/77/c6b577af547b6e2be90ad7858314b2e6.jpg" alt="">
+                <img src="https://i.pinimg.com/736x/e5/87/c7/e587c710fd0a5066ed0f354bc354bce0.jpg" alt="">
+
+                <!-- duplicate images for smooth loop -->
+                <img src="https://i.pinimg.com/736x/d9/31/29/d93129b37f8ecf1ae98833834179f7ce.jpg" alt="">
+                <img src="https://i.pinimg.com/736x/fd/b2/d9/fdb2d9cc097a86313b8d41df6c254d68.jpg" alt="">
+                <img src="https://i.pinimg.com/736x/f5/78/b2/f578b2323729173e46bc0bcd533fd6ac.jpg" alt="">
+                <img src="https://i.pinimg.com/736x/59/43/a2/5943a28e40716d6006c56fb8820289af.jpg" alt="">
+                <img src="https://i.pinimg.com/736x/e7/d6/64/e7d6640ba71e3e6e2ed49a0e14982c93.jpg" alt="">
+                <img src="https://i.pinimg.com/736x/c6/b5/77/c6b577af547b6e2be90ad7858314b2e6.jpg" alt="">
+                <img src="https://i.pinimg.com/736x/e5/87/c7/e587c710fd0a5066ed0f354bc354bce0.jpg" alt="">
+            </div>
+            <div class="footer-content">
+                <div class="social-media">
+                    <i class="fa-brands fa-facebook" aria-hidden="true">Facebook</i>
+                    <i class="fa-brands fa-twitter" aria-hidden="true"> Twitter</i>
+                    <i class="fa-brands fa-instagram" aria-hidden="true"> Instagram</i>
+                    <i class="fa-brands fa-linkedin" aria-hidden="true"> Linkedin</i>
+                </div>
+                <div class="copyright">
+                    <p>Copyright 2025 CarePlus. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
 
     </footer>
 
